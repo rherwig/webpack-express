@@ -1,5 +1,4 @@
 const join = require('path').join;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -17,12 +16,18 @@ module.exports = {
         modules: [
             join(__dirname, '../node_modules'),
             join(__dirname, '../src')
-        ]
+        ],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
     },
     module: {
         rules: [{
             test: /\.js$/,
             use: 'babel-loader'
+        }, {
+            test: /\.vue$/,
+            use: 'vue-loader'
         }, {
             test: /\.less$/,
             use: ExtractTextWebpackPlugin.extract({
