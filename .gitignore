@@ -1,0 +1,9 @@
+# IDE
+.idea
+
+# NodeJS
+node_modules
+
+# Project dist files
+public/assets
+public/**/*.json
